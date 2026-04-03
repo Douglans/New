@@ -1,0 +1,36 @@
+# 1. 导入随机数模块
+import random
+
+# 2. 生成1~100的随机数，初始化猜数次数
+secret_num = random.randint(1, 100)
+count = 0
+
+# 3. 无限循环，直到玩家猜中
+while True:
+    # 4. 获取用户输入
+    guess = input("\n请输入你猜的数字: ")
+    
+    # 5. 输入校验：判断是否为有效数字
+    if not guess.isdigit():
+        print("⚠️ 请输入一个有效的数字！")
+        continue
+    
+    # 6. 类型转换，次数+1
+    guess = int(guess)
+    count += 1
+    
+    # 7. 大小判断，给出提示
+    if guess > secret_num:
+        print("❌ 太大了！再小一点试试~")
+    elif guess < secret_num:
+        print("❌ 太小了！再大一点试试~")
+    else:
+        # 8. 猜中，展示结果，退出循环
+        print("🎉 恭喜你！猜对啦！")
+        print(f"🎯 正确数字就是: {secret_num}")
+        print(f"📝 你一共猜了 {count} 次！")
+        break
+
+# 9. 游戏结束提示
+print("\n========== 游戏结束 ==========")
+print("你太棒了！继续学习Python吧！")
